@@ -1,0 +1,15 @@
+<div class="container vertical-space">
+	{{#poem}}
+	<h1>{{title}}</h1>
+	<h3>{{#author}}{{name}}{{/author}}</h3>
+	{{#stanzas}}
+		<p>	
+			{{#lines}}
+				{{line}}<br>
+			{{/lines}}
+		</p>
+	{{/stanzas}}
+	{{/poem}}
+
+</div>
+

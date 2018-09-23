@@ -1,0 +1,47 @@
+{{>layout/header}}
+
+<div class="container vertical-space">
+	<h3>Concept Search</h3>
+	<small class="text-muted">Search for poems by theme.</small>
+	<form method="POST" action="{{req.contextPath}}/match">
+		{{#searchForm}}
+		<div class="form-group row vertical-space">
+			<label for="exactTheme" class="col-sm-2 col-form-label">Theme</label>
+			<div class="col-sm-4">
+				<input class="form-control" type="text" name="exactTheme" value="{{#exactTheme}}{{.}}{{/exactTheme}}" />
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+		<div class="form-group row vertical-space">
+			<div class="col-sm-6">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="{{req.contextPath}}/match" class="btn btn-link">Clear</a>
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+		{{/searchForm}}
+	</form>
+</div>
+
+<div class="container">
+	{{#results}}
+		<h3>Search Results</h3>
+		<small class="text-muted">
+		Click on the poem to view.</small>
+		<div class="vertical-space">
+			{{^poems}}
+				<p>No Results Found</p>
+			{{/poems}}
+			<ul>
+			{{#poems}}
+			<li>
+				<a href="{{req.contextPath}}/poem/{{id}}">{{title}} ({{#author}}{{name}}{{/author}})</a>
+			</li>
+			{{/poems}}
+			</ul>
+		</div>
+	{{/results}}	
+</div>
+
+
+{{>layout/footer}}
