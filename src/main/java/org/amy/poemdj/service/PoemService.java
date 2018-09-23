@@ -11,14 +11,12 @@ import java.util.stream.Collectors;
 import org.amy.poemdj.domain.Author;
 import org.amy.poemdj.domain.Line;
 import org.amy.poemdj.domain.Poem;
-import org.amy.poemdj.repository.AuthorRepository;
-import org.amy.poemdj.repository.LineRepository;
 import org.amy.poemdj.repository.PoemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Service for mixing poetry
+ * Service for displaying poetry
  * 
  * @author yateam
  *
@@ -29,50 +27,7 @@ public class PoemService {
 	@Autowired
 	PoemRepository poemRepository;
 
-	@Autowired
-	AuthorRepository authorRepository;
-
-	@Autowired
-	LineRepository lineRepository;
-
     Random rand = new Random(); 
-
-// How the data was ingested
-//	@Autowired
-//	public PoemService(PoemRepository poemRepository, AuthorRepository authorRepository) {
-//		try {
-//			ClassLoader classLoader = this.getClass().getClassLoader();
-//			ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(classLoader);
-//			Resource[] resources = resolver.getResources("classpath*:/poems/**/*.json") ;
-//			for (Resource resource: resources){
-//				ObjectMapper om = new ObjectMapper();
-//				Poem poem = om.readValue(resource.getInputStream(), Poem.class);
-//				poem.setAuthor(findOrPersistAuthor(poem.getAuthor(), authorRepository));
-//				// Set the parents correctly
-//				poem.getLines().forEach(line -> {
-//					line.setPoem(poem);
-//				});
-//				poemRepository.save(poem);
-//				resource.getInputStream().close();
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//	}
-    
-//    private Author findOrPersistAuthor(Author author, AuthorRepository authorRepository) {
-//		List<Author> dbAuthors = authorRepository.findByName(author.getName());
-//		if (dbAuthors.size() == 1) {
-//			return dbAuthors.get(0);
-//		}
-//		
-//		if (dbAuthors.size() > 2) {
-//			throw new RuntimeException("Unique constraint should prevent this.");
-//		}
-//		
-//		return authorRepository.save(author);
-//	}
 
 	public Poem getById(Long id) {
     	return poemRepository.getOne(id);

@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PoemRepository extends JpaRepository<Poem, Long> {
 	
-	@Query(nativeQuery=true, value="select distinct p.* from poem p join line l on l.poem = p.id where p.title like %:exact% or l.line like %:exact%")
+	// Search for text in title, author, and lines
+	@Query(nativeQuery=true, value="select distinct p.* from poem p join author a on a.id = p.author join line l on l.poem = p.id where p.title like %:exact% or l.line like %:exact% or a.name like %:exact%")
 	public List<Poem> findPoemsContaining(@Param("exact") String exact);
 
 }

@@ -1,13 +1,38 @@
 {{>layout/header}}
 
 <div class="container">
-	<div class="card" style="width: 18rem;">
-  		<img class="card-img-top" src="/images/letters.jpg" alt="Letters">
-		<div class="card-body">
-			<p>Care to spin a little poetry? Poem DJ is the premier source for mixing poems into fun new combinations.</p>
-			<a class="btn btn-primary" href="{{req.contextPath}}/mix">Let's mince words!</a>
-		</div>	
-	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">Mix</div>
+	  			<img class="card-img-top" style="width: 18rem;height: 14rem;" src="/images/letters.jpg" alt="Letters">
+				<div class="card-body">
+					<p>Mix poems into fun new combinations.</p>
+					<a class="btn btn-primary" href="{{req.contextPath}}/mix">Let's mince words!</a>
+				</div>	
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">Match</div>
+	  			<img class="card-img-top" style="width: 18rem;height: 14rem;" src="/images/words.jpg" alt="Words">
+				<div class="card-body">
+					<p>Explore poems by titles and themes.</p>
+					<a class="btn btn-primary" href="{{req.contextPath}}/match">Match your mood.</a>
+				</div>	
+			</div>
+		</div>
+		<div class="col-lg-4">		
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">Spin</div>
+		  		<img class="card-img-top" style="padding: 1rem 2rem 1rem 2rem;width: 18rem;height: 14rem;" src="/images/spinner.jpg" alt="Spinner">
+				<div class="card-body">
+					<p>Something Else Entirely will go here.</p>
+					<a class="btn btn-primary" href="{{req.contextPath}}/spin">Spin.</a>
+				</div>	
+			</div>
+		</div>
+	</div>		
 </div>
 
 {{>layout/footer}}
